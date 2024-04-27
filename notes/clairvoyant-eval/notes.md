@@ -19,7 +19,7 @@ with $y$ bound to $z_1$ in the heap. Note that (following the LET rule) **let** 
 
 I also want to contextualize the $\hat z$ notation in the VAR rule. The paper doesn't explain this beyond saying that $z$ is "alpha-renamed so as to avoid unwanted name capture," which I found a little vague.
 
-What's actually going on is that we are renaming *all bound variables in $z$ to be fresh with respect to those already bound in $\Delta$ and $x$*. This ensures that when we ultimately evaluate the body of $z$ and generate new bindings, these bindings will not conflict with those in the heap. We don't have to rename the $z$ that we store back into $\Delta$ because any subsequent accesses to $x$ will also be renamed.
+What's actually going on is that we are renaming *all bound variables in* $z$ *to be fresh with respect to those already bound in* $\Delta$ *and* $x$. This ensures that when we ultimately evaluate the body of $z$ and generate new bindings, these bindings will not conflict with those in the heap. We don't have to rename the $z$ that we store back into $\Delta$ because any subsequent accesses to $x$ will also be renamed.
 
 The [attached image](IMG_3142.jpeg) contains an example of an expression that "goes wrong" without this rule. Let $z$ be a variable referring to a value $z_1$. Then we can reduce the expression as follows:
 
